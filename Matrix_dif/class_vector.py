@@ -14,11 +14,11 @@ def add(v1, v2):
         v, num = check_type(v1, v2)
         return [v[i] + num for i in range(len(v))]
 
-def mul(vec1, vec2):
-    if trueVector(vec1, vec2):
-        return [(vec1[i] * vec2[i]) for i in range(len(vec1))]
+def mul(v1, v2):
+    if trueVector(v1, v2):
+        return [(v1[i] * v2[i]) for i in range(len(v1))]
     else:
-        v, num = check_type(vec1, vec2)
+        v, num = check_type(v1, v2)
         return [v[i] * num for i in range(len(v))]
 
 def sub(v1, v2):
