@@ -28,12 +28,15 @@ def sub(v1, v2):
         v, num = check_type(v1, v2)
         return [v[i] - num for i in range(len(v))]
     
-def div(v1,v2):
-    if trueVector(v1,v2):
+def div(v1, v2):
+    if trueVector(v1, v2):
         v = []
         for i in range(len(v1)):
             v.append(v1[i]/v2[i])
         return v
+    else:
+        v, num = check_type(v1, v2)
+        return [v[i] / num for i in range(len(v))]
 
 def scalar_div(v1, scalar):
     v = []
