@@ -1,6 +1,8 @@
 import time
 from memory_profiler import profile
 import random
+from tkinter import *
+from tkinter import ttk
 
 
 @profile
@@ -266,3 +268,75 @@ def t13():
     start_time1 = time.time()
     print(sumList(arr))
     print("--- %s seconds ---" % (time.time() - start_time1))
+
+
+@profile
+def t14_1_2():
+    test = Tk()
+    test.title("Test")
+    test.geometry("400x400")
+
+    def R_to_D():
+        dollar = 61.24
+        price = rub.get()
+        result.delete(1.0, END)
+        result.insert(INSERT, float(price) /
+                      float(dollar), INSERT, " долларов")
+
+    def D_to_R():
+        dollar = 61.24
+        price = rub.get()
+        result.delete(1.0, END)
+        result.insert(INSERT, float(price) *
+                      float(dollar), INSERT, " рублей")
+
+    appName = Label(test, text="Рубли в доллары", font=(
+        "arial", 30), fg="black")
+    appName.place(x=45, y=30)
+
+    result = Text(test, height=4, width=30,
+                  font=("arial", 10))
+    result.place(x=100, y=80)
+
+    text = Label(test, text="Сумма",
+                 font=("arial", 8, "bold"), fg="black")
+    text.place(x=5, y=185)
+
+    rub = Entry(test, font=("arial", 15))
+    rub.place(x=100, y=180)
+
+    button = Button(test, text="Rub to Dol", fg="red",
+                    font=("arial", 20), bg="black", command=R_to_D)
+    button.place(x=100, y=230, height=40, width=225)
+    button = Button(test, text="Dol to Rub", fg="red",
+                    font=("arial", 20), bg="black", command=D_to_R)
+    button.place(x=100, y=280, height=40, width=225)
+
+    test.mainloop()
+
+
+@profile
+def t15():
+    n, m = input("n: "), input("m: ")
+    start_time1 = time.time()
+    n, m = int(n), int(m)
+    if (n > 20) or (m > 20) or (n < 5) or (m < 5):
+        exit
+    else:
+        for i in range(1, n+1):
+            for j in range(1, m+1):
+                print(i*j, end='\t')
+            print()
+    print("--- %s seconds ---" % (time.time() - start_time1))
+
+
+@profile
+def t16():
+    def drawMatrix(matrix):
+        for i in matrix:
+            for j in i:
+                print(j, end='\t')
+            print()
+
+
+t16()
