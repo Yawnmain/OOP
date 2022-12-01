@@ -55,7 +55,7 @@ class monster:
     def starv(self):
         if self.flag:
             if self.health <= 0:
-                self.end("Зверушка умерла от голода", "\n")
+                self.end("Зверушка умерла от голода")
             else:
                 self.health -= self.feedSPD
                 print("Я проголодалась!", "\n", f"ХП: {self.health}", "\n")
@@ -63,7 +63,7 @@ class monster:
     def tilt(self):
         if self.flag:
             if self.happy <= 0:
-                self.end("Зверушка умерла от депрессии", "\n")
+                self.end("Зверушка умерла от депрессии")
             else:
                 self.happy -= self.playSPD
                 print("Я хочу играть!", "\n", f"Счастье: {self.happy}", "\n")
