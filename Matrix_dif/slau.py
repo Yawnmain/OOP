@@ -2,6 +2,18 @@ import MYmatrix as mt
 import class_vector as v
 from copy import deepcopy
 
+# Interpolar part
+
+
+def slau_for_inter(m, keys):
+    new_m = deepcopy(m)
+    new_k = deepcopy(keys)
+    randomaizer_rows(new_m, new_k)
+    new_m, new_k = gaus_drive_sub(new_m, new_k)
+    new_m, new_k = gaus_reverse_sub(new_m, new_k)
+
+    return new_k
+
 # Gauss
 
 
