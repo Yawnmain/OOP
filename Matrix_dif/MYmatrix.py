@@ -42,26 +42,18 @@ def mul(a, b):
     new_m = []
     if matrix_check(a, b):
         mul_size_check(a, b)
-        if (trueMat(b)):
-            for i in range(len(a)):
-                tmp = []
-                for c in range(len(b)):
-                    cell_tmp = 0
-                    for j in range(len(a[c])):
-                        cell_tmp += a[i][j] * b[j][c]
-                    tmp += [cell_tmp]
-                new_m += [tmp]
-        else:
-            for i in range(len(a)):
-                for c in range(len(b)):
-                    cell_tmp = 0
-                    for j in range(len(a[c])):
-                        cell_tmp += a[i][j] * b[j]
-                new_m += [cell_tmp]
+        for i in range(len(a)):
+            buf = []
+            for j in range(len(b[i])):
+                buf += [0]
+                for c in range(len(a[i])):
+                    buf[-1] += a[i][c] * b[c][j]
+            new_m += [buf]
     else:
-        mat, scal = numOfMat(a, b)
-        for row in mat:
+        m, scal = numOfMat(a, b)
+        for row in m:
             new_m += [v.mul(row, scal)]
+
     return new_m
 
 
